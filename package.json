@@ -1,0 +1,74 @@
+{
+  "title": "Multiple Paste and Go Button",
+  "name": "multiple-paste-and-go-button",
+  "id": "multiple-paste-and-go-button@wantora.github.io",
+  "version": "0.0.1",
+  "description": "This add-on provides a button to open multiple URLs from clipboard.",
+  "main": "index.js",
+  "author": "wantora",
+  "engines": {
+    "firefox": ">=38.0a1",
+    "fennec": ">=38.0a1"
+  },
+  "license": "MIT",
+  "keywords": [
+    "jetpack",
+    "tab",
+    "toolbar",
+    "button",
+    "paste"
+  ],
+  "homepage": "https://github.com/wantora/multiple-paste-and-go-button",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/wantora/multiple-paste-and-go-button.git"
+  },
+  "scripts": {
+    "test": "jpm test",
+    "lint": "eslint .",
+    "start": "jpm run",
+    "debug": "jpm run --debug",
+    "build": "jpm xpi"
+  },
+  "preferences": [
+    {
+      "name": "shortcutKey",
+      "type": "string",
+      "title": "Shortcut key",
+      "description": "(Default: accel-shift-v)",
+      "value": "accel-shift-v"
+    },
+    {
+      "name": "switchToNewTabs",
+      "type": "bool",
+      "title": "Switch to new tabs it immediately",
+      "value": false
+    },
+    {
+      "name": "heuristicMode",
+      "type": "bool",
+      "title": "Heuristic parsing of URL",
+      "value": true
+    },
+    {
+      "name": "allowSpecialSchemes",
+      "type": "bool",
+      "title": "Allow special URL schemes",
+      "value": false
+    },
+    {
+      "name": "specialSchemes",
+      "type": "string",
+      "title": "Special URL schemes",
+      "description": "(Default: ftp, data, about, resource, chrome, jar, file)",
+      "value": "ftp, data, about, resource, chrome, jar, file"
+    }
+  ],
+  "permissions": {
+    "private-browsing": true
+  },
+  "devDependencies": {
+    "eslint": "^1.10.3",
+    "jpm": "^1.0.4"
+  }
+}

@@ -1,0 +1,24 @@
+http://www.example.com/
+https://www.example.com/
+
+ttp://www.example.com/ttp
+ttps://www.example.com/ttps
+
+ftp://ftp.gnu.org/
+data:text/html,%3Ch1%3EHello%2C%20World!%3C%2Fh1%3E
+about:
+about:about
+resource://gre/modules/Services.jsm
+chrome://browser/content/browser.css
+jar:file:///C:/Program%20Files%20%28x86%29/Mozilla%20Firefox/omni.ja!/
+file:///C:/Program%20Files%20%28x86%29/Mozilla%20Firefox/
+
+	 http://www.example.com/space  
+DUMMY http://www.example.com/dummytext DUMMY
+http://www.example.com/1 http://www.example.com/2
+<http://www.example.com/3>
+
+https://en.wikipedia.org/wiki/Firefox_(disambiguation)
+(http://www.example.com/parenthesis)
+
+invalidhttp://www.example.com/invalidhttp
