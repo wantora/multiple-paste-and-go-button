@@ -7,8 +7,7 @@
   "main": "index.js",
   "author": "wantora",
   "engines": {
-    "firefox": ">=38.0a1",
-    "fennec": ">=38.0a1"
+    "firefox": ">=42.0"
   },
   "license": "MIT",
   "keywords": [
