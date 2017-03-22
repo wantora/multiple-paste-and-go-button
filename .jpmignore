@@ -1,5 +1,8 @@
-*.xpi
 .*
-misc/
-node_modules/
+*.xpi
+misc
+node_modules
 npm-debug.log
+src
+webpack.config.js
+webpack.production.config.js

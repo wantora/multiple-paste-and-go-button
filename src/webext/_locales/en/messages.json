@@ -1,0 +1,8 @@
+{
+  "extensionDescription": {
+    "message": "This add-on provides a button to open multiple URLs from clipboard."
+  },
+  "pasteAndGoButtonLabel": {
+    "message": "Paste and Go"
+  }
+}

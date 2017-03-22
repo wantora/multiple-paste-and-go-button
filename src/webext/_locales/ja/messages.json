@@ -1,0 +1,8 @@
+{
+  "extensionDescription": {
+    "message": "クリップボードから複数のURLをまとめて開くためのボタンを提供します。"
+  },
+  "pasteAndGoButtonLabel": {
+    "message": "Paste and Go"
+  }
+}

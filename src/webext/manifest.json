@@ -1,0 +1,38 @@
+{
+  "manifest_version": 2,
+  "name": "Multiple Paste and Go Button",
+  "description": "__MSG_extensionDescription__",
+  "version": "1.0.1",
+  "developer": {
+    "name": "wantora",
+    "url": "https://github.com/wantora/multiple-paste-and-go-button"
+  },
+  "applications": {
+    "gecko": {
+      "id": "multiple-paste-and-go-button@wantora.github.io"
+    }
+  },
+  "default_locale": "en",
+  "permissions": [
+    "clipboardRead",
+    "storage"
+  ],
+  "background": {
+    "scripts": [
+      "background.js"
+    ]
+  },
+  "browser_action": {
+    "browser_style": true,
+    "default_icon": "button/paste-and-go.svg",
+    "default_title": "__MSG_pasteAndGoButtonLabel__"
+  },
+  "commands": {
+    "_execute_browser_action": {
+      "suggested_key": {
+        "default": "Ctrl+Shift+V",
+        "mac": "MacCtrl+Shift+V"
+      }
+    }
+  }
+}
