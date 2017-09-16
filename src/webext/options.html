@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Options</title>
+  <link href="options.css" rel="stylesheet">
+</head>
+<body>
+  <div class="form-row">
+    <label for="switchToNewTabs" data-i18n="switchToNewTabsLabel"></label>
+    <div class="form-input"><input type="checkbox" id="switchToNewTabs"></div>
+  </div>
+  
+  <div class="form-row">
+    <label for="heuristicMode" data-i18n="heuristicModeLabel"></label>
+    <div class="form-input"><input type="checkbox" id="heuristicMode"></div>
+  </div>
+  
+  <div class="form-row">
+    <label for="additionalSchemes">
+      <span data-i18n="additionalSchemesLabel"></span><br>
+      <span class="description" data-i18n="additionalSchemesDescription"></span>
+    </label>
+    <div class="form-input"><input type="text" id="additionalSchemes"></div>
+  </div>
+  
+  <script src="options.js"></script>
+</body>
+</html>

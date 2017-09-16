@@ -1,0 +1,39 @@
+html, body {
+  margin: 0;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font: message-box;
+  -moz-user-select: none;
+  user-select: none;
+}
+
+.form-row {
+  border-top: 1px solid #ccc;
+  margin-top: 0.25em;
+  padding-top: 0.25em;
+}
+
+.form-row label {
+  display: inline-block;
+  width: 40%;
+}
+
+.description {
+  color: #666;
+  margin-left: 1em;
+}
+
+.form-input {
+  display: inline-block;
+  width: 59%;
+  vertical-align: top;
+}
+
+.form-row input[type="text"] {
+  width: 100%;
+}

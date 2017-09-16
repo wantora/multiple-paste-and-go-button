@@ -4,11 +4,7 @@
   "id": "multiple-paste-and-go-button@wantora.github.io",
   "version": "2.0.0",
   "description": "This add-on provides a button to open multiple URLs from clipboard.",
-  "main": "index.js",
   "author": "wantora",
-  "engines": {
-    "firefox": ">=52.0"
-  },
   "license": "MIT",
   "keywords": [
     "jetpack",
@@ -23,38 +19,13 @@
     "url": "https://github.com/wantora/multiple-paste-and-go-button.git"
   },
   "scripts": {
+    "_web-ext:build": "web-ext build --source-dir dist",
+    "_web-ext:run": "web-ext run --source-dir dist",
+    "_webpack:prod": "webpack --config webpack.production.config.js",
+    "_webpack:watch": "webpack --config webpack.config.js --watch",
+    "build": "npm-run-all --silent --sequential _webpack:prod _web-ext:build",
     "lint": "eslint .",
-    "start": "npm-run-all --silent --sequential --continue-on-error cmd:webpack:dev cmd:jpm:run",
-    "build": "npm-run-all --silent --sequential cmd:webpack:prod cmd:jpm:xpi",
-    "cmd:jpm:run": "jpm run",
-    "cmd:jpm:xpi": "jpm xpi",
-    "cmd:webpack:dev": "webpack --config webpack.config.js",
-    "cmd:webpack:prod": "webpack --config webpack.production.config.js"
-  },
-  "preferences": [
-    {
-      "name": "switchToNewTabs",
-      "type": "bool",
-      "title": "Switch to new tabs it immediately",
-      "value": false
-    },
-    {
-      "name": "heuristicMode",
-      "type": "bool",
-      "title": "Heuristic parsing of URL",
-      "value": true
-    },
-    {
-      "name": "additionalSchemes",
-      "type": "string",
-      "title": "Additional URL schemes",
-      "description": "Comma separated text.",
-      "value": ""
-    }
-  ],
-  "permissions": {
-    "private-browsing": true,
-    "multiprocess": true
+    "start": "npm-run-all --silent --parallel --race _webpack:watch _web-ext:run"
   },
   "dependencies": {
     "events": "^1.1.1"
@@ -68,7 +39,7 @@
     "eslint-loader": "^1.7.1",
     "jpm": "^1.3.1",
     "npm-run-all": "^4.0.2",
+    "web-ext": "^2.0.0",
     "webpack": "^2.3.2"
-  },
-  "hasEmbeddedWebExtension": true
+  }
 }

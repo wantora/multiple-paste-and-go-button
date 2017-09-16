@@ -5,10 +5,11 @@ const path = require("path");
 
 module.exports = {
   entry: {
-    background: "./src/background.js",
+    "background": "./src/background.js",
+    "options": "./src/options.js",
   },
   output: {
-    path: path.join(__dirname, "webextension"),
+    path: path.join(__dirname, "dist"),
     filename: "[name].js",
     pathinfo: true,
   },

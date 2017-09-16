@@ -4,5 +4,17 @@
   },
   "pasteAndGoButtonLabel": {
     "message": "Paste and Go"
+  },
+  "switchToNewTabsLabel": {
+    "message": "すぐに新しいタブに切り替える"
+  },
+  "heuristicModeLabel": {
+    "message": "URL をヒューリスティック解析する"
+  },
+  "additionalSchemesLabel": {
+    "message": "追加の URL スキーム"
+  },
+  "additionalSchemesDescription": {
+    "message": "カンマ区切りのテキスト。"
   }
 }

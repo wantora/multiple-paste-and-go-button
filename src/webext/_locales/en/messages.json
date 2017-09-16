@@ -4,5 +4,17 @@
   },
   "pasteAndGoButtonLabel": {
     "message": "Paste and Go"
+  },
+  "switchToNewTabsLabel": {
+    "message": "Switch to new tabs it immediately"
+  },
+  "heuristicModeLabel": {
+    "message": "Heuristic parsing of URL"
+  },
+  "additionalSchemesLabel": {
+    "message": "Additional URL schemes"
+  },
+  "additionalSchemesDescription": {
+    "message": "Comma separated text."
   }
 }
