@@ -2,7 +2,7 @@
   "title": "Multiple Paste and Go Button",
   "name": "multiple-paste-and-go-button",
   "id": "multiple-paste-and-go-button@wantora.github.io",
-  "version": "2.1.0",
+  "version": "2.1.1",
   "description": "This add-on provides a button to open multiple URLs from clipboard.",
   "author": "wantora",
   "license": "MIT",
