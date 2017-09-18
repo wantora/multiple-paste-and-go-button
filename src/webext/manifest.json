@@ -9,7 +9,8 @@
   },
   "applications": {
     "gecko": {
-      "id": "multiple-paste-and-go-button@wantora.github.io"
+      "id": "multiple-paste-and-go-button@wantora.github.io",
+      "strict_min_version": "54.0"
     }
   },
   "default_locale": "en",
