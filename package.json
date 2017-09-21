@@ -1,32 +1,8 @@
 {
-  "title": "Multiple Paste and Go Button",
   "name": "multiple-paste-and-go-button",
-  "id": "multiple-paste-and-go-button@wantora.github.io",
-  "version": "2.1.1",
   "description": "This add-on provides a button to open multiple URLs from clipboard.",
+  "version": "2.1.1",
   "author": "wantora",
-  "license": "MIT",
-  "keywords": [
-    "jetpack",
-    "tab",
-    "toolbar",
-    "button",
-    "paste"
-  ],
-  "homepage": "https://github.com/wantora/multiple-paste-and-go-button",
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/wantora/multiple-paste-and-go-button.git"
-  },
-  "scripts": {
-    "_web-ext:build": "web-ext build --source-dir dist",
-    "_web-ext:run": "web-ext run --source-dir dist",
-    "_webpack:prod": "webpack --config webpack.production.config.js",
-    "_webpack:watch": "webpack --config webpack.config.js --watch",
-    "build": "npm-run-all --silent --sequential _webpack:prod _web-ext:build",
-    "lint": "eslint .",
-    "start": "npm-run-all --silent --parallel --race _webpack:watch _web-ext:run"
-  },
   "dependencies": {
     "events": "^1.1.1"
   },
@@ -41,5 +17,27 @@
     "npm-run-all": "^4.0.2",
     "web-ext": "^2.0.0",
     "webpack": "^2.3.2"
+  },
+  "homepage": "https://github.com/wantora/multiple-paste-and-go-button",
+  "keywords": [
+    "button",
+    "jetpack",
+    "paste",
+    "tab",
+    "toolbar"
+  ],
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/wantora/multiple-paste-and-go-button.git"
+  },
+  "scripts": {
+    "_web-ext:build": "web-ext build --source-dir dist",
+    "_web-ext:run": "web-ext run --source-dir dist",
+    "_webpack:prod": "webpack --config webpack.production.config.js",
+    "_webpack:watch": "webpack --config webpack.config.js --watch",
+    "build": "npm-run-all --silent --sequential _webpack:prod _web-ext:build",
+    "lint": "eslint .",
+    "start": "npm-run-all --silent --parallel --race _webpack:watch _web-ext:run"
   }
 }

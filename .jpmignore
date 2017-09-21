@@ -1,7 +1,0 @@
-.*
-*.xpi
-misc
-node_modules
-src
-webpack.config.js
-webpack.production.config.js
