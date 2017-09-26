@@ -1,26 +1,38 @@
 import {EventEmitter} from "events";
 
-const emitter = new EventEmitter();
-
-browser.storage.onChanged.addListener((changes, areaName) => {
-  if (areaName === "local") {
-    Object.keys(changes).forEach((key) => {
-      emitter.emit(key, changes[key].newValue, changes[key].oldValue);
+class Prefs {
+  constructor(defaultKeys) {
+    this._defaultKeys = defaultKeys;
+    this._emitter = new EventEmitter();
+    
+    browser.storage.onChanged.addListener((changes, areaName) => {
+      if (areaName === "local") {
+        Object.keys(changes).forEach((key) => {
+          this._emitter.emit(key, changes[key].newValue, changes[key].oldValue);
+        });
+      }
     });
   }
-});
-
-export default {
-  get(keys) {
-    return browser.storage.local.get(keys);
-  },
-  set(keys) {
-    return browser.storage.local.set(keys);
-  },
+  get(keysArray) {
+    const keysObject = {};
+    keysArray.forEach((key) => {
+      keysObject[key] = this._defaultKeys[key];
+    });
+    return browser.storage.local.get(keysObject);
+  }
+  set(keysObject) {
+    return browser.storage.local.set(keysObject).then(() => null);
+  }
   on(keyName, listener) {
-    emitter.on(keyName, listener);
-  },
+    this._emitter.on(keyName, listener);
+  }
   off(keyName, listener) {
-    emitter.removeListener(keyName, listener);
-  },
-};
+    this._emitter.removeListener(keyName, listener);
+  }
+}
+
+export default new Prefs({
+  switchToNewTabs: false,
+  heuristicMode: true,
+  additionalSchemes: "",
+});

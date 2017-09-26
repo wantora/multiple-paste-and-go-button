@@ -25,11 +25,11 @@ function setValue(input, value) {
 
 initI18n();
 
-Prefs.get({
-  switchToNewTabs: false,
-  heuristicMode: true,
-  additionalSchemes: "",
-}).then((obj) => {
+Prefs.get([
+  "switchToNewTabs",
+  "heuristicMode",
+  "additionalSchemes",
+]).then((obj) => {
   Object.keys(obj).forEach((key) => {
     const input = document.getElementById(key);
     setValue(input, obj[key]);

@@ -3,7 +3,7 @@ import Prefs from "./lib/Prefs";
 import {getClipboard} from "./lib/Clipboard";
 
 function openTabs(urls) {
-  return Prefs.get({switchToNewTabs: false}).then(({switchToNewTabs}) => {
+  return Prefs.get(["switchToNewTabs"]).then(({switchToNewTabs}) => {
     urls.forEach((url) => {
       browser.tabs.create({
         url: url,

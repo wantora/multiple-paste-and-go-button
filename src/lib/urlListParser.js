@@ -97,10 +97,7 @@ function parseURLHeuristic(text) {
 }
 
 export default function(text) {
-  return Prefs.get({
-    heuristicMode: true,
-    additionalSchemes: "",
-  }).then(({heuristicMode, additionalSchemes}) => {
+  return Prefs.get(["heuristicMode", "additionalSchemes"]).then(({heuristicMode, additionalSchemes}) => {
     const schemes = getSchemes(additionalSchemes);
     const urls = [].concat(...text.split(/[\r\n]+/).map((line) => {
       if (heuristicMode) {
