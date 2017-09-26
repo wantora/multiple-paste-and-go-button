@@ -1,7 +1,6 @@
 import {urlListParser, parseURLHeuristic} from "./lib/urlListParser";
 import Prefs from "./lib/Prefs";
 import {getClipboard} from "./lib/Clipboard";
-import uniq from "lodash.uniq";
 
 function openTabs(urls) {
   return Prefs.get(["switchToNewTabs"]).then(({switchToNewTabs}) => {
@@ -31,7 +30,7 @@ function pasteAndGo() {
       }
       
       if (removeURLDup) {
-        urls = uniq(urls);
+        urls = [...new Set(urls)];
       }
       
       return openTabs(urls);
