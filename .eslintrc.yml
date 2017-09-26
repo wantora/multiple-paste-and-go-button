@@ -10,6 +10,9 @@ env:
   commonjs: true
   webextensions: true
 
+globals:
+  process: false
+
 rules:
   # Possible Errors
   no-compare-neg-zero: "error"

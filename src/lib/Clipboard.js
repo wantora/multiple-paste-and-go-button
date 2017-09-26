@@ -1,19 +1,51 @@
-const textarea = document.createElement("textarea");
-textarea.contentEditable = "true";
-document.body.appendChild(textarea);
+import Prefs from "./Prefs";
+
+const editableArea = document.createElement("div");
+editableArea.contentEditable = "true";
+document.body.appendChild(editableArea);
+
+function parseLink(element) {
+  Array.from(element.childNodes).forEach((node) => {
+    if (node.nodeType !== Node.ELEMENT_NODE) {
+      return;
+    }
+    const nodeName = node.nodeName.toLowerCase();
+    
+    if (nodeName === "a" || nodeName === "area") {
+      if (node.hasAttribute("href")) {
+        const newNode = document.createElement("span");
+        newNode.appendChild(document.createElement("br"));
+        newNode.appendChild(document.createTextNode(node.href));
+        newNode.appendChild(document.createElement("br"));
+        node.parentNode.replaceChild(newNode, node);
+      }
+    } else {
+      parseLink(node);
+    }
+  });
+}
 
 export function getClipboard() {
-  textarea.textContent = "";
-  textarea.focus();
+  editableArea.textContent = "";
+  editableArea.focus();
   document.execCommand("Paste");
   
-  const value = Array.from(textarea.childNodes).map((node) => {
-    if (node.nodeName.toLowerCase() === "br") {
-      return "\n";
-    } else {
-      return node.nodeValue;
+  return Prefs.get(["heuristicMode", "additionalSchemes"]).then((options) => {
+    /* eslint-disable no-console */
+    if (process.env.NODE_ENV !== "production") {
+      console.log("innerHTML:", editableArea.innerHTML);
+      console.log("innerText:", editableArea.innerText);
     }
-  }).join("");
-  
-  return Promise.resolve(value);
+    
+    parseLink(editableArea);
+    const value = editableArea.innerText;
+    
+    if (process.env.NODE_ENV !== "production") {
+      console.log("parse: innerHTML:", editableArea.innerHTML);
+      console.log("parse: innerText:", editableArea.innerText);
+    }
+    /* eslint-enable no-console */
+    
+    return value;
+  });
 }

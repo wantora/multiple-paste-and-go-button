@@ -1,4 +1,3 @@
-import Prefs from "./Prefs";
 import {regexpUnion} from "./RegexpUtils";
 
 const GENERAL_SCHEMES = [
@@ -74,7 +73,7 @@ function parseLine(line, schemes) {
   }
 }
 
-function parseURLHeuristic(text) {
+export function parseURLHeuristic(text) {
   const trimmedText = text.replace(/[\r\n]/g, "").trim();
   
   if (trimmedText !== "") {
@@ -96,24 +95,15 @@ function parseURLHeuristic(text) {
   return null;
 }
 
-export default function(text) {
-  return Prefs.get(["heuristicMode", "additionalSchemes"]).then(({heuristicMode, additionalSchemes}) => {
-    const schemes = getSchemes(additionalSchemes);
-    const urls = [].concat(...text.split(/[\r\n]+/).map((line) => {
-      if (heuristicMode) {
-        return parseLineHeuristic(line, schemes);
-      } else {
-        return parseLine(line, schemes);
-      }
-    }));
-    
-    if (urls.length === 0) {
-      const url = parseURLHeuristic(text);
-      if (url !== null) {
-        return [url];
-      }
+export function urlListParser(text, {heuristicMode, additionalSchemes}) {
+  const schemes = getSchemes(additionalSchemes);
+  const urls = [].concat(...text.split(/[\r\n]+/).map((line) => {
+    if (heuristicMode) {
+      return parseLineHeuristic(line, schemes);
+    } else {
+      return parseLine(line, schemes);
     }
-    
-    return urls;
-  });
+  }));
+  
+  return urls;
 }
