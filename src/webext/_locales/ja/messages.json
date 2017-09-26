@@ -11,6 +11,12 @@
   "heuristicModeLabel": {
     "message": "URL をヒューリスティック解析する"
   },
+  "supportHTMLLinkLabel": {
+    "message": "HTML リンクに対応"
+  },
+  "removeURLDupLabel": {
+    "message": "URL の重複を除去"
+  },
   "additionalSchemesLabel": {
     "message": "追加の URL スキーム"
   },

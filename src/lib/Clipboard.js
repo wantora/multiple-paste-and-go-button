@@ -30,14 +30,16 @@ export function getClipboard() {
   editableArea.focus();
   document.execCommand("Paste");
   
-  return Prefs.get(["heuristicMode", "additionalSchemes"]).then((options) => {
+  return Prefs.get(["supportHTMLLink"]).then(({supportHTMLLink}) => {
     /* eslint-disable no-console */
     if (process.env.NODE_ENV !== "production") {
       console.log("innerHTML:", editableArea.innerHTML);
       console.log("innerText:", editableArea.innerText);
     }
     
-    parseLink(editableArea);
+    if (supportHTMLLink) {
+      parseLink(editableArea);
+    }
     const value = editableArea.innerText;
     
     if (process.env.NODE_ENV !== "production") {

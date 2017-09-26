@@ -24,3 +24,9 @@ xyzhttp://www.example.com/xyzhttp
 ht tp://www.example.com/
 http:// x
 invalid://invalidscheme
+
+# dup
+http://www.example.com/#1
+http://www.example.com/#1
+http://www.example.com/#2
+

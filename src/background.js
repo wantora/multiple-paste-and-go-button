@@ -1,6 +1,7 @@
 import {urlListParser, parseURLHeuristic} from "./lib/urlListParser";
 import Prefs from "./lib/Prefs";
 import {getClipboard} from "./lib/Clipboard";
+import uniq from "lodash.uniq";
 
 function openTabs(urls) {
   return Prefs.get(["switchToNewTabs"]).then(({switchToNewTabs}) => {
@@ -14,21 +15,27 @@ function openTabs(urls) {
 }
 
 function pasteAndGo() {
-  return getClipboard().then((text) => {
-    return Prefs.get(["heuristicMode", "additionalSchemes"]).then((options) => {
-      const urls = urlListParser(text, options);
+  return Prefs.get([
+    "heuristicMode",
+    "additionalSchemes",
+    "removeURLDup",
+  ]).then(({heuristicMode, additionalSchemes, removeURLDup}) => {
+    return getClipboard().then((text) => {
+      let urls = urlListParser(text, {heuristicMode, additionalSchemes});
       
       if (urls.length === 0) {
         const url = parseURLHeuristic(text);
         if (url !== null) {
-          return [url];
+          urls = [url];
         }
       }
       
-      return urls;
+      if (removeURLDup) {
+        urls = uniq(urls);
+      }
+      
+      return openTabs(urls);
     });
-  }).then((urls) => {
-    return openTabs(urls);
   });
 }
 

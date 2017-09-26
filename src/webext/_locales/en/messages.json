@@ -11,6 +11,12 @@
   "heuristicModeLabel": {
     "message": "Heuristic parsing of URL"
   },
+  "supportHTMLLinkLabel": {
+    "message": "Support HTML link"
+  },
+  "removeURLDupLabel": {
+    "message": "Remove URL duplication"
+  },
   "additionalSchemesLabel": {
     "message": "Additional URL schemes"
   },

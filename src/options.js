@@ -28,6 +28,8 @@ initI18n();
 Prefs.get([
   "switchToNewTabs",
   "heuristicMode",
+  "supportHTMLLink",
+  "removeURLDup",
   "additionalSchemes",
 ]).then((obj) => {
   Object.keys(obj).forEach((key) => {

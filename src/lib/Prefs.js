@@ -34,5 +34,7 @@ class Prefs {
 export default new Prefs({
   switchToNewTabs: false,
   heuristicMode: true,
+  supportHTMLLink: true,
+  removeURLDup: true,
   additionalSchemes: "",
 });
