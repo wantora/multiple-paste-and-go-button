@@ -36,9 +36,10 @@
     "_web-ext:build": "web-ext build --source-dir dist",
     "_web-ext:run": "web-ext run --source-dir dist",
     "_webpack:prod": "webpack --config webpack.production.config.js",
-    "_webpack:watch": "webpack --config webpack.config.js --watch",
-    "build": "npm-run-all --silent --sequential _webpack:prod _web-ext:build",
+    "_webpack:dev": "webpack --config webpack.config.js",
+    "_webpack:watch": "npm run _webpack:dev -- --watch",
+    "build": "npm-run-all -s _webpack:prod _web-ext:build",
     "lint": "eslint .",
-    "start": "npm-run-all --silent --parallel --race _webpack:watch _web-ext:run"
+    "start": "npm-run-all -s _webpack:dev -p --race _webpack:watch _web-ext:run"
   }
 }
