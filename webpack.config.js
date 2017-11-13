@@ -19,9 +19,9 @@ module.exports = {
       debug: true,
     }),
     new CopyWebpackPlugin([
-      {
-        from: "./src/webext",
-      },
+      {from: "./src/webext"},
+      {from: "README.md"},
+      {from: "LICENSE.md"},
     ]),
   ],
   module: {
