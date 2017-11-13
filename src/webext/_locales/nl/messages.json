@@ -1,0 +1,26 @@
+{
+  "extensionDescription": {
+    "message": "Deze add-on biedt een knop om meerdere URL's van het klembord te openen."
+  },
+  "pasteAndGoButtonLabel": {
+    "message": "Plakken en Gaan"
+  },
+  "switchToNewTabsLabel": {
+    "message": "Onmiddellijk naar nieuwe tabbladen wisselen"
+  },
+  "heuristicModeLabel": {
+    "message": "URL's slim verwerken"
+  },
+  "supportHTMLLinkLabel": {
+    "message": "Ondersteun HTML-links"
+  },
+  "removeURLDupLabel": {
+    "message": "Verwijder duplicaat-URL's"
+  },
+  "additionalSchemesLabel": {
+    "message": "Extra URL-blauwdrukken"
+  },
+  "additionalSchemesDescription": {
+    "message": "Onderscheid waarden met een komma"
+  }
+}
