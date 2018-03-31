@@ -14,28 +14,26 @@ function openTabs(urls) {
 }
 
 function pasteAndGo() {
-  return Prefs.get([
-    "heuristicMode",
-    "additionalSchemes",
-    "removeURLDup",
-  ]).then(({heuristicMode, additionalSchemes, removeURLDup}) => {
-    return getClipboard().then((text) => {
-      let urls = urlListParser(text, {heuristicMode, additionalSchemes});
-      
-      if (urls.length === 0) {
-        const url = parseURLHeuristic(text);
-        if (url !== null) {
-          urls = [url];
+  return Prefs.get(["heuristicMode", "additionalSchemes", "removeURLDup"]).then(
+    ({heuristicMode, additionalSchemes, removeURLDup}) => {
+      return getClipboard().then((text) => {
+        let urls = urlListParser(text, {heuristicMode, additionalSchemes});
+
+        if (urls.length === 0) {
+          const url = parseURLHeuristic(text);
+          if (url !== null) {
+            urls = [url];
+          }
         }
-      }
-      
-      if (removeURLDup) {
-        urls = [...new Set(urls)];
-      }
-      
-      return openTabs(urls);
-    });
-  });
+
+        if (removeURLDup) {
+          urls = [...new Set(urls)];
+        }
+
+        return openTabs(urls);
+      });
+    }
+  );
 }
 
 // Button

@@ -1,10 +1,10 @@
-import {EventEmitter} from "events";
+import events from "events";
 
 class Prefs {
   constructor(defaultKeys) {
     this._defaultKeys = defaultKeys;
-    this._emitter = new EventEmitter();
-    
+    this._emitter = new events.EventEmitter();
+
     browser.storage.onChanged.addListener((changes, areaName) => {
       if (areaName === "local") {
         Object.keys(changes).forEach((key) => {

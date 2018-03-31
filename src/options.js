@@ -35,7 +35,7 @@ Prefs.get([
   Object.keys(obj).forEach((key) => {
     const input = document.getElementById(key);
     setValue(input, obj[key]);
-    
+
     input.addEventListener("change", () => {
       Prefs.set({[key]: getValue(input)});
     });

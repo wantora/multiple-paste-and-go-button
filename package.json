@@ -1,26 +1,7 @@
 {
   "name": "multiple-paste-and-go-button",
-  "description": "This add-on provides a button to open multiple URLs from clipboard.",
   "version": "2.4.1",
-  "author": "wantora",
-  "dependencies": {
-    "events": "^1.1.1"
-  },
-  "devDependencies": {
-    "babel-core": "^6.26.0",
-    "babel-loader": "^7.1.2",
-    "babel-preset-env": "^1.6.1",
-    "copy-webpack-plugin": "^4.2.3",
-    "eslint": "^4.12.1",
-    "eslint-config-wantora": "github:wantora/eslint-config-wantora#v1.0.0",
-    "eslint-loader": "^1.9.0",
-    "glob": "^7.1.2",
-    "npm-run-all": "^4.1.2",
-    "rimraf": "^2.6.2",
-    "web-ext": "^2.2.2",
-    "webpack": "^3.9.1"
-  },
-  "homepage": "https://github.com/wantora/multiple-paste-and-go-button",
+  "description": "This add-on provides a button to open multiple URLs from clipboard.",
   "keywords": [
     "button",
     "jetpack",
@@ -28,18 +9,36 @@
     "tab",
     "toolbar"
   ],
+  "homepage": "https://github.com/wantora/multiple-paste-and-go-button",
   "license": "MIT",
+  "author": "wantora",
   "repository": {
     "type": "git",
     "url": "https://github.com/wantora/multiple-paste-and-go-button.git"
   },
   "scripts": {
-    "clean": "rimraf dist",
-    "build": "npm-run-all -s clean build:js build:ext",
+    "build": "npm run clean && npm run build:js && npm run build:ext",
     "build:ext": "web-ext build --source-dir dist",
-    "build:js": "webpack --env.production true",
-    "lint": "eslint .",
+    "build:js": "webpack --mode production",
+    "clean": "rimraf dist",
+    "format": "sort-package-json && eslint --fix .",
+    "lint": "web-ext lint --source-dir dist && eslint .",
     "start": "web-ext run --source-dir dist",
-    "watch": "webpack --watch"
+    "watch": "webpack --mode development --watch"
+  },
+  "dependencies": {
+    "events": "^2.0.0"
+  },
+  "devDependencies": {
+    "copy-webpack-plugin": "^4.5.1",
+    "eslint": "^4.19.1",
+    "eslint-config-wantora": "github:wantora/eslint-config-wantora#v1.2.1",
+    "eslint-loader": "^2.0.0",
+    "glob": "^7.1.2",
+    "rimraf": "^2.6.2",
+    "sort-package-json": "^1.11.0",
+    "web-ext": "^2.6.0",
+    "webpack": "^4.4.1",
+    "webpack-cli": "^2.0.13"
   }
 }

@@ -1,9 +1,6 @@
 import {regexpUnion} from "./RegexpUtils";
 
-const GENERAL_SCHEMES = [
-  "http",
-  "https",
-];
+const GENERAL_SCHEMES = ["http", "https"];
 
 const URL_CHARS = [
   /[A-Za-z]/,
@@ -46,10 +43,10 @@ function parseLineHeuristic(line, schemes) {
   const urlRe = new RegExp(`\\b(?:${regexpUnion(...schemes)}|ttps?):${URL_CHARS_SOURCE}*`, "g");
   const urls = [];
   let result = null;
-  
+
   while ((result = urlRe.exec(line)) !== null) {
     let url = result[0];
-    
+
     if (url.match(/^ttps?:/)) {
       url = "h" + url;
     }
@@ -58,14 +55,14 @@ function parseLineHeuristic(line, schemes) {
     }
     urls.push(url);
   }
-  
+
   return urls;
 }
 
 function parseLine(line, schemes) {
   const schemesRe = new RegExp(`^${regexpUnion(...schemes)}:`);
   const line2 = line.trim();
-  
+
   if (schemesRe.test(line2)) {
     return [line2];
   } else {
@@ -75,14 +72,10 @@ function parseLine(line, schemes) {
 
 export function parseURLHeuristic(text) {
   const trimmedText = text.replace(/[\r\n]/g, "").trim();
-  
+
   if (trimmedText !== "") {
-    const texts = [
-      trimmedText,
-      "http://" + trimmedText,
-      "http://" + encodeURI(trimmedText),
-    ];
-    
+    const texts = [trimmedText, "http://" + trimmedText, "http://" + encodeURI(trimmedText)];
+
     for (let index = 0; index < texts.length; index++) {
       try {
         return new URL(texts[index]).href;
@@ -91,19 +84,21 @@ export function parseURLHeuristic(text) {
       }
     }
   }
-  
+
   return null;
 }
 
 export function urlListParser(text, {heuristicMode, additionalSchemes}) {
   const schemes = getSchemes(additionalSchemes);
-  const urls = [].concat(...text.split(/[\r\n]+/).map((line) => {
-    if (heuristicMode) {
-      return parseLineHeuristic(line, schemes);
-    } else {
-      return parseLine(line, schemes);
-    }
-  }));
-  
+  const urls = [].concat(
+    ...text.split(/[\r\n]+/).map((line) => {
+      if (heuristicMode) {
+        return parseLineHeuristic(line, schemes);
+      } else {
+        return parseLine(line, schemes);
+      }
+    })
+  );
+
   return urls;
 }
