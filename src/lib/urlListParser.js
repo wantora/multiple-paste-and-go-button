@@ -40,7 +40,10 @@ function getSchemes(additionalSchemes) {
 }
 
 function parseLineHeuristic(line, schemes) {
-  const urlRe = new RegExp(`\\b(?:${regexpUnion(...schemes)}|ttps?):${URL_CHARS_SOURCE}*`, "g");
+  const urlRe = new RegExp(
+    `\\b(?:${regexpUnion(...schemes)}|ttps?):${URL_CHARS_SOURCE}*`,
+    "g"
+  );
   const urls = [];
   let result = null;
 
@@ -50,7 +53,11 @@ function parseLineHeuristic(line, schemes) {
     if (url.match(/^ttps?:/)) {
       url = "h" + url;
     }
-    if (result.index >= 1 && result.input[result.index - 1] === "(" && url.slice(-1) === ")") {
+    if (
+      result.index >= 1 &&
+      result.input[result.index - 1] === "(" &&
+      url.slice(-1) === ")"
+    ) {
       url = url.slice(0, -1);
     }
     urls.push(url);
@@ -74,7 +81,11 @@ export function parseURLHeuristic(text) {
   const trimmedText = text.replace(/[\r\n]/g, "").trim();
 
   if (trimmedText !== "") {
-    const texts = [trimmedText, "http://" + trimmedText, "http://" + encodeURI(trimmedText)];
+    const texts = [
+      trimmedText,
+      "http://" + trimmedText,
+      "http://" + encodeURI(trimmedText),
+    ];
 
     for (let index = 0; index < texts.length; index++) {
       try {
