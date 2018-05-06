@@ -1,0 +1,26 @@
+{
+  "extensionDescription": {
+    "message": "Permet d’ouvrir dans des onglets tous les liens contenus dans le presse-papiers."
+  },
+  "pasteAndGoButtonLabel": {
+    "message": "Ouvrir les liens du presse-papiers"
+  },
+  "switchToNewTabsLabel": {
+    "message": "Basculer immédiatement sur les onglets créés"
+  },
+  "heuristicModeLabel": {
+    "message": "Effectuer une analyse heuristique des adresses"
+  },
+  "supportHTMLLinkLabel": {
+    "message": "Prendre en charge les liens HTML"
+  },
+  "removeURLDupLabel": {
+    "message": "Supprimer les adresses en double"
+  },
+  "additionalSchemesLabel": {
+    "message": "Schémas d’adresse supplémentaires :"
+  },
+  "additionalSchemesDescription": {
+    "message": "(séparés par une virgule)"
+  }
+}
