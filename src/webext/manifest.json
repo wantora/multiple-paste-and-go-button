@@ -2,7 +2,7 @@
   "manifest_version": 2,
   "name": "Multiple Paste and Go Button",
   "description": "__MSG_extensionDescription__",
-  "version": "2.4.1",
+  "version": "2.5.0",
   "developer": {
     "name": "wantora",
     "url": "https://github.com/wantora/multiple-paste-and-go-button"
