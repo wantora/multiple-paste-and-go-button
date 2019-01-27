@@ -1,39 +1,55 @@
 import {urlListParser, parseURLHeuristic} from "./lib/urlListParser";
 import Prefs from "./lib/Prefs";
-import {getClipboard} from "./lib/Clipboard";
+import {getClipboardHTMLLinks} from "./lib/Clipboard";
 
-function openTabs(urls) {
-  return Prefs.get(["switchToNewTabs"]).then(({switchToNewTabs}) => {
-    urls.forEach((url) => {
-      browser.tabs.create({
-        url: url,
-        active: switchToNewTabs,
-      });
+async function openTabs(urls) {
+  const {switchToNewTabs} = await Prefs.get(["switchToNewTabs"]);
+
+  urls.forEach((url) => {
+    browser.tabs.create({
+      url: url,
+      active: switchToNewTabs,
     });
   });
 }
 
-function pasteAndGo() {
-  return Prefs.get(["heuristicMode", "additionalSchemes", "removeURLDup"]).then(
-    ({heuristicMode, additionalSchemes, removeURLDup}) => {
-      return getClipboard().then((text) => {
-        let urls = urlListParser(text, {heuristicMode, additionalSchemes});
+async function pasteAndGo() {
+  const {
+    heuristicMode,
+    additionalSchemes,
+    removeURLDup,
+    supportHTMLLink,
+  } = await Prefs.get([
+    "heuristicMode",
+    "additionalSchemes",
+    "removeURLDup",
+    "supportHTMLLink",
+  ]);
 
-        if (urls.length === 0) {
-          const url = parseURLHeuristic(text);
-          if (url !== null) {
-            urls = [url];
-          }
-        }
+  const text = await navigator.clipboard.readText();
 
-        if (removeURLDup) {
-          urls = [...new Set(urls)];
-        }
+  let urls = urlListParser(text, {heuristicMode, additionalSchemes});
 
-        return openTabs(urls);
-      });
+  if (supportHTMLLink) {
+    for (const url of getClipboardHTMLLinks()) {
+      if (!urls.includes(url)) {
+        urls.push(url);
+      }
     }
-  );
+  }
+
+  if (urls.length === 0) {
+    const url = parseURLHeuristic(text);
+    if (url !== null) {
+      urls = [url];
+    }
+  }
+
+  if (removeURLDup) {
+    urls = [...new Set(urls)];
+  }
+
+  await openTabs(urls);
 }
 
 // Button
