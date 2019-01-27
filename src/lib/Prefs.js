@@ -33,6 +33,7 @@ class Prefs {
 
 export default new Prefs({
   switchToNewTabs: false,
+  discardNewTabs: false,
   heuristicMode: true,
   supportHTMLLink: true,
   removeURLDup: true,

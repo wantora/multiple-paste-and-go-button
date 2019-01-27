@@ -8,6 +8,9 @@
   "switchToNewTabsLabel": {
     "message": "Switch to new tabs immediately"
   },
+  "discardNewTabsLabel": {
+    "message": "Don't load new tabs until selected"
+  },
   "heuristicModeLabel": {
     "message": "Heuristic parsing of URL"
   },

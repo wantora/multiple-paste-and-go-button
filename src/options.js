@@ -27,6 +27,7 @@ initI18n();
 
 Prefs.get([
   "switchToNewTabs",
+  "discardNewTabs",
   "heuristicMode",
   "supportHTMLLink",
   "removeURLDup",

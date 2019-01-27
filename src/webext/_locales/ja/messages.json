@@ -8,6 +8,9 @@
   "switchToNewTabsLabel": {
     "message": "すぐに新しいタブに切り替える"
   },
+  "discardNewTabsLabel": {
+    "message": "新しいタブを選択するまで読み込まない"
+  },
   "heuristicModeLabel": {
     "message": "URL をヒューリスティック解析する"
   },
