@@ -8,6 +8,9 @@
   "switchToNewTabsLabel": {
     "message": "Basculer immédiatement sur les onglets créés"
   },
+  "discardNewTabsLabel": {
+    "message": "Ne charger les onglets qu’une fois sélectionnés"
+  },
   "heuristicModeLabel": {
     "message": "Effectuer une analyse heuristique des adresses"
   },
