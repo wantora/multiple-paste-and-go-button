@@ -1,0 +1,29 @@
+{
+  "extensionDescription": {
+    "message": "Dieses Add-on fügt einen Knopf zum öffnen mehrerer URLs aus der Zwischenablage hinzu."
+  },
+  "pasteAndGoButtonLabel": {
+    "message": "Einfügen & Los"
+  },
+  "switchToNewTabsLabel": {
+    "message": "Neue Tabs im Vordergrund öffnen"
+  },
+  "discardNewTabsLabel": {
+    "message": "Neue Tabs nicht bis zur Auswahl laden"
+  },
+  "heuristicModeLabel": {
+    "message": "URLs versuchen zu analysieren"
+  },
+  "supportHTMLLinkLabel": {
+    "message": "HTML-Links unterstützen"
+  },
+  "removeURLDupLabel": {
+    "message": "Doppelte URLs nicht öffnen"
+  },
+  "additionalSchemesLabel": {
+    "message": "Zusätzliche URL-Schemata"
+  },
+  "additionalSchemesDescription": {
+    "message": "Text durch Komma getrennt."
+  }
+}
