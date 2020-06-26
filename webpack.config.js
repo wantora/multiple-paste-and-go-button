@@ -18,11 +18,13 @@ module.exports = (env, argv) => {
       pathinfo: true,
     },
     plugins: [
-      new CopyWebpackPlugin([
-        {from: "./src/webext"},
-        {from: "README.md"},
-        {from: "LICENSE.md"},
-      ]),
+      new CopyWebpackPlugin({
+        patterns: [
+          {from: "./src/webext"},
+          {from: "README.md"},
+          {from: "LICENSE.md"},
+        ],
+      }),
     ],
     module: {
       rules: [

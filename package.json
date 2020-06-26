@@ -10,12 +10,12 @@
     "toolbar"
   ],
   "homepage": "https://github.com/wantora/multiple-paste-and-go-button",
-  "license": "MIT",
-  "author": "wantora",
   "repository": {
     "type": "git",
     "url": "https://github.com/wantora/multiple-paste-and-go-button.git"
   },
+  "license": "MIT",
+  "author": "wantora",
   "scripts": {
     "build": "npm run clean && npm run build:js && npm run build:ext",
     "build:ext": "web-ext build --source-dir dist",
@@ -28,18 +28,20 @@
     "watch": "webpack --mode development --watch"
   },
   "dependencies": {
-    "events": "^2.0.0"
+    "events": "^3.1.0"
   },
   "devDependencies": {
-    "copy-webpack-plugin": "^4.5.1",
+    "copy-webpack-plugin": "^6.0.2",
     "eslint": "^4.19.1",
-    "eslint-config-wantora": "github:wantora/eslint-config-wantora#v1.3.0",
+    "eslint-config-prettier": "^6.11.0",
     "eslint-loader": "^2.0.0",
-    "glob": "^7.1.2",
-    "rimraf": "^2.6.2",
-    "sort-package-json": "^1.11.0",
-    "web-ext": "^2.6.0",
-    "webpack": "^4.4.1",
-    "webpack-cli": "^2.0.13"
+    "eslint-plugin-prettier": "^3.1.4",
+    "glob": "^7.1.6",
+    "prettier": "^2.0.5",
+    "rimraf": "^3.0.2",
+    "sort-package-json": "^1.44.0",
+    "web-ext": "^4.3.0",
+    "webpack": "^4.43.0",
+    "webpack-cli": "^3.3.12"
   }
 }
