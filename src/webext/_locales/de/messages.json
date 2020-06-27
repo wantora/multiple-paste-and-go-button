@@ -12,7 +12,7 @@
     "message": "Neue Tabs nicht bis zur Auswahl laden"
   },
   "heuristicModeLabel": {
-    "message": "URLs versuchen zu analysieren"
+    "message": "Versuche URLs zu reparieren"
   },
   "supportHTMLLinkLabel": {
     "message": "HTML-Links unterstützen"
