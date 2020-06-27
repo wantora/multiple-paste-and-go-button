@@ -12,7 +12,7 @@
     "message": "Don't load new tabs until selected"
   },
   "heuristicModeLabel": {
-    "message": "Heuristic parsing of URL"
+    "message": "Try to fix URLs"
   },
   "supportHTMLLinkLabel": {
     "message": "Support HTML link"
