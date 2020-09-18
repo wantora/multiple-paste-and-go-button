@@ -23,7 +23,7 @@ async function openTabs(urls) {
     } else {
       browser.tabs.create(tabProps);
     }
-  });
+  }
 }
 
 async function pasteAndGo() {
