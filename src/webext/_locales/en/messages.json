@@ -25,5 +25,11 @@
   },
   "additionalSchemesDescription": {
     "message": "Comma separated text."
+  },
+  "newTabTimeoutLabel": {
+    "message": "Timeout between processing new tabs"
+  },
+  "newTabTimeoutDescription": {
+    "message": "Value in ms, disables asynchronous processing if negative"
   }
 }

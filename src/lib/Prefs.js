@@ -38,4 +38,5 @@ export default new Prefs({
   supportHTMLLink: true,
   removeURLDup: true,
   additionalSchemes: "",
+  newTabTimeout: 0,
 });

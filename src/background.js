@@ -3,19 +3,26 @@ import Prefs from "./lib/Prefs";
 import {getClipboardHTMLLinks} from "./lib/Clipboard";
 
 async function openTabs(urls) {
-  const {switchToNewTabs, discardNewTabs} = await Prefs.get([
+  const {switchToNewTabs, discardNewTabs, newTabTimeout} = await Prefs.get([
     "switchToNewTabs",
     "discardNewTabs",
+    "newTabTimeout",
   ]);
 
-  urls.forEach((url, index) => {
-    const active = switchToNewTabs && index === urls.length - 1;
-
-    browser.tabs.create({
-      url: url,
+  for (let i = 0; i < urls.length; ++i) {
+    const active = switchToNewTabs && i === urls.length - 1;
+    const tabProps = {
+      url: urls[i],
       active: active,
       discarded: discardNewTabs && !active,
-    });
+    };
+    if (i > 0 && newTabTimeout > 0) {
+      window.setTimeout(() => browser.tabs.create(tabProps), newTabTimeout);
+    } else if (newTabTimeout < 0) {
+      await browser.tabs.create(tabProps);
+    } else {
+      browser.tabs.create(tabProps);
+    }
   });
 }
 

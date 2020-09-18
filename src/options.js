@@ -32,6 +32,7 @@ Prefs.get([
   "supportHTMLLink",
   "removeURLDup",
   "additionalSchemes",
+  "newTabTimeout",
 ]).then((obj) => {
   Object.keys(obj).forEach((key) => {
     const input = document.getElementById(key);
