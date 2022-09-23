@@ -20,17 +20,13 @@ async function openTabs(urls) {
 }
 
 async function pasteAndGo() {
-  const {
-    heuristicMode,
-    additionalSchemes,
-    removeURLDup,
-    supportHTMLLink,
-  } = await Prefs.get([
-    "heuristicMode",
-    "additionalSchemes",
-    "removeURLDup",
-    "supportHTMLLink",
-  ]);
+  const {heuristicMode, additionalSchemes, removeURLDup, supportHTMLLink} =
+    await Prefs.get([
+      "heuristicMode",
+      "additionalSchemes",
+      "removeURLDup",
+      "supportHTMLLink",
+    ]);
 
   const text = await navigator.clipboard.readText();
 

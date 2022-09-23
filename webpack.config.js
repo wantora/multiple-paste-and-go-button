@@ -1,6 +1,7 @@
 "use strict";
 
 const CopyWebpackPlugin = require("copy-webpack-plugin");
+const ESLintPlugin = require("eslint-webpack-plugin");
 const path = require("path");
 const glob = require("glob");
 
@@ -25,6 +26,7 @@ module.exports = (env, argv) => {
           {from: "LICENSE.md"},
         ],
       }),
+      new ESLintPlugin(),
     ],
     module: {
       rules: [
@@ -32,12 +34,6 @@ module.exports = (env, argv) => {
           test: /\.js$/,
           exclude: /node_modules/,
           type: "javascript/esm",
-        },
-        {
-          test: /\.js$/,
-          exclude: /node_modules/,
-          enforce: "pre",
-          use: "eslint-loader",
         },
       ],
     },
